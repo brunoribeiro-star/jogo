@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:jogo/main.dart';
+import 'package:jogo/tela_inicial.dart';
 
 class Jogo extends StatefulWidget {
   const Jogo({super.key});
@@ -10,13 +11,13 @@ class Jogo extends StatefulWidget {
 }
 
 class _JogoState extends State<Jogo> {
-  var _imagemApp = AssetImage('imagem/padrao.png')!;
+  var _imagemApp = AssetImage('assets/imagem/padrao.png')!;
   var _mensagem = 'Escolha sua opção abaixo';
 
   final Map<String, AssetImage> _opcaoImagem = {
-    "pedra" : AssetImage("imagem/pedra.png"),
-    "papel" : AssetImage("imagem/papel.png"),
-    "tesoura" : AssetImage("imagem/tesoura.png")
+    "pedra" : AssetImage("assets/imagem/pedra.png"),
+    "papel" : AssetImage("assets/imagem/papel.png"),
+    "tesoura" : AssetImage("assets/imagem/tesoura.png")
   };
 
   void _opcaoSelecionada(String escolhaUsuario) {
@@ -87,8 +88,22 @@ class _JogoState extends State<Jogo> {
             children: <Widget>[
               GestureDetector(
                 onTap: () => _opcaoSelecionada("pedra"),
-                child: Image.asset("imagem/pedra.png"),
-              )
+                child: Image.asset("assets/imagem/pedra.png",
+                  height: 100,
+                ),
+              ),
+              GestureDetector(
+                onTap: () => _opcaoSelecionada("papel"),
+                child: Image.asset("assets/imagem/papel.png",
+                  height: 100,
+                ),
+              ),
+              GestureDetector(
+                onTap: () => _opcaoSelecionada("tesoura"),
+                child: Image.asset("assets/imagem/tesoura.png",
+                  height: 100,
+                ),
+              ),
             ],
           )
         ],
